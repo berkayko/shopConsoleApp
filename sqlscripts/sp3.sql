@@ -1,0 +1,32 @@
+USE [MMTShop]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GET_AVAILABLE_CATEGORY_SP]    Script Date: 3.12.2020 21:48:34 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GET_AVAILABLE_CATEGORY_SP]
+	-- Add the parameters for the stored procedure here
+ @SKU_START INT,
+ @SKU_END INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * from dbo.Category
+	where sku<@SKU_START or sku>@SKU_END
+END
+GO
+
+
